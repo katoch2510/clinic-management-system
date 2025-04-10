@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Appointment Booking</h1>
+    <form method="post">
+        <input type="text" name="patient_name" placeholder="Patient Name" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <button type="submit">Book Appointment</button>
+    </form>
+
+    <h2>Appointment List</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.id }}</td>
+            <td>{{ appointment.patient_name }}</td>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.time }}</td>
+            <td><a href="/cancel_appointment/{{ appointment.id }}">Cancel</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

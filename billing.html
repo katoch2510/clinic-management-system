@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Billing</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Billing</h1>
+    <form method="post">
+        <input type="text" name="patient_name" placeholder="Patient Name" required>
+        <input type="text" name="service" placeholder="Service" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <select name="status">
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+        </select>
+        <button type="submit">Generate Bill</button>
+    </form>
+
+    <h2>Billing Records</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Service</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+        {% for bill in bills %}
+        <tr>
+            <td>{{ bill.id }}</td>
+            <td>{{ bill.patient_name }}</td>
+            <td>{{ bill.service }}</td>
+            <td>{{ bill.amount }}</td>
+            <td>{{ bill.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
