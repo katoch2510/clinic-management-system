@@ -1,4 +1,4 @@
-linic Management System
+Clinic Management System
 This is a simple web-based Clinic Management System built using Flask (Python web framework). It allows you to manage patients, appointments, billing, and medical reports with a user-friendly interface and data stored in JSON files.
 
 🚀 Features
